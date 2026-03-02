@@ -1,0 +1,60 @@
+#+TITLE: vibefetch
+#+DESCRIPTION: neofetch for the AI coding agent era
+
+[[file:screenshot.png]]
+
+* About
+
+vibefetch is a neofetch-like system info tool that also detects which AI coding agents you have installed — and crowns the one you use most as *most vibed*.
+
+#+begin_example
+   .--.       luke@archlinux
+  |o  o|      ------------------
+  | \/ |      OS: Arch Linux
+  |    |      Kernel: Linux 6.18.13-arch1-1
+ /|----|\     Uptime: 1d 8h 33m
+/ |~~~~| \    Shell: bash 5.2.37
+  |~~~~|      CPU: Intel Core Ultra 7 155H
+  |~~~~|      Memory: 4121 MiB / 15043 MiB
+  '----'      Packages: 886 (pacman)
+ vibefetch
+ ~~~~~~~~~~    AI Agents:
+                ● Claude Code    (13 uses) <<< most vibed
+                ● OpenCode       (1 uses)
+                ○ Cursor         not installed
+                ...
+
+ ███ ███ ███ ███ ███ ███ ███ ███
+#+end_example
+
+* Detected Agents
+
+| Agent           | Detection method               |
+|-----------------+--------------------------------|
+| Claude Code     | =claude= binary, =~/.claude/= |
+| OpenCode        | =opencode= binary              |
+| Cursor          | =~/.cursor/=, =/opt/Cursor=    |
+| Gemini CLI      | =gemini= binary                |
+| Codex           | =codex= binary                 |
+| GitHub Copilot  | =gh-copilot= extension dir     |
+| Aider           | =aider= binary                 |
+| Continue        | =~/.continue/=                 |
+| Cline           | VS Code extension              |
+| Windsurf        | =~/.codeium/=, =/opt/Windsurf= |
+
+"Most vibed" is determined by counting command invocations in =~/.bash_history= and =~/.zsh_history=.
+
+* Building
+
+Requires CMake 3.16+ and a C++17 compiler. Linux only.
+
+#+begin_src sh
+mkdir -p build && cd build
+cmake ..
+make -j$(nproc)
+./vibefetch
+#+end_src
+
+* License
+
+MIT
