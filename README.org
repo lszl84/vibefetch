@@ -1,8 +1,6 @@
 #+TITLE: vibefetch
 #+DESCRIPTION: neofetch for the AI coding agent era
 
-[[file:screenshot.png]]
-
 * About
 
 vibefetch is a neofetch-like system info tool that also detects which AI coding agents you have installed — and crowns the one you use most as *most vibed*.
